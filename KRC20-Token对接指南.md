@@ -150,13 +150,13 @@ topics[1] == `0000000000000000000000007d90f1cbbb35afc72db58747588dc3cdf23c7c83` 
 ## 6. 使用 RPC 发送 KRC Token
 在第4节中我们介绍了通过代码构建Token交易的步骤，这一节我们介绍一下通过RPC发送Token的方式。
 
-调用RPC：`sendtocontract {TOKEN_CONTRACT_ADDRESS} a9059cbb{to32bytesArg(addressToHash160(RECEIVER_ADDRESS))}{to32bytesArg(addDecimals($amount))} 0 250000 4 {SENDER_ADDRESS}`
+调用RPC：`sendtocontract {TOKEN_CONTRACT_ADDRESS} a9059cbb{to32bytesArg(addressToHash160(RECEIVER_ADDRESS))}{to32bytesArg(addDecimals($amount))} 0 250000 0.0000004 {SENDER_ADDRESS}`
 
 参数说明：
 * `{TOKEN_CONTRACT_ADDRESS}`: Token的合约地址
 * `{to32bytesArg(addressToHash160(RECEIVER_ADDRESS))}`: 将接收方地址转化为hash160地址，并在左侧补0，使字符串长度为64
 * `{to32bytesArg(addDecimals($amount))}`: 将要发送的金额数目转化为16进制，并在左侧补0，使字符串长度为64
-* `0 250000 4`：分别代表给合约发送KPG金额、gas_limit、gas_price，建议不要改动
+* `0 250000 0.0000004`：分别代表给合约发送KPG金额、gas_limit、gas_price，建议不要改动
 * `{SENDER_ADDRESS}`: 发送方地址(钱包内需要有该地址的私钥)
 
 参考文献：https://github.com/qtumproject/documents/blob/master/zh/QRC20%E9%9B%86%E6%88%90%E6%96%87%E6%A1%A3.md
